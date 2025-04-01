@@ -1,0 +1,20 @@
+.sidebar {
+    width: 200px;
+    background: #f4f4f4;
+    padding: 15px;
+    box-sizing: border-box;
+    height: 100vh;  /* Sidebar prend toute la hauteur de l'écran */
+    .active{
+
+        border-right: 4px solid #2ba9f2;
+        color:#2ba9f2
+    }
+}
+.sidebar a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #333;
+    padding: 1rem;
+   
+}

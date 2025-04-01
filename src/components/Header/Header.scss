@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    color: white;
+    padding: 10px;
+    // width: 100vw;
+    
+    &-logo{
+    height: 3rem;
+    margin-left: 0;
+}
+}
+
+.header input {
+    margin: 5px;
+    padding: 5px;
+}

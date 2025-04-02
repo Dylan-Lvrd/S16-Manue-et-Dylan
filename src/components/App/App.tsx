@@ -12,6 +12,7 @@ import '../styles/reset.scss';
 function App() {
   
   const [recipeList, setRecipeList] = useState<IRecipes[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
  
   useEffect (() => {
     const getRecipes = async () => {
@@ -26,9 +27,20 @@ function App() {
         console.log(error);
 
       }
-    }
+      setIsLoading(false)
+    };
     getRecipes()
   }, []);
+
+  if (isLoading) {
+    return (
+      <div className="loader-container">
+        <div className="loader">
+          <p>Loading...</p>
+        </div>
+      </div>
+    );
+  };
 
   return (
     

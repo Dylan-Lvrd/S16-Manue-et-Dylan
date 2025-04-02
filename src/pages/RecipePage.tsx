@@ -11,12 +11,13 @@ function RecipePage({recipeList}: {recipeList : IRecipes[]}){
     console.log(recipe)
     return(
      <div className="recipe-container"> 
-        <div className="thumbnail">
-             <img src={recipe?.thumbnail} alt="" />
+     <img src={recipe?.thumbnail} alt="" className="card-img" /> 
+     <div className="infos">
+  
             <h1 className="title">{recipe?.title}</h1>
             <p className="info">{recipe?.author} - {recipe?.difficulty}</p>  
         </div>
-        <ul>
+        <ul className='ingredients'>
         {recipe?.ingredients.map((ingredient) => (
             <li key={ingredient.id} className="ingredient"><strong>{ingredient.quantity}{ingredient.unit !== '' && ` ${ingredient.unit}`}</strong> {ingredient.name}</li>
         ))}

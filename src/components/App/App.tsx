@@ -7,6 +7,7 @@ import axios from 'axios';
 import type {IRecipes} from '../../@types/recipes';
 import {Routes, Route} from 'react-router';
 import RecipePage from '../../pages/RecipePage';
+import '../styles/reset.scss';
 
 function App() {
   

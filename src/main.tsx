@@ -4,6 +4,7 @@ import App from './components/App/App.tsx'
 import {BrowserRouter} from "react-router";
 
 
+
 // biome-ignore lint/style/noNonNullAssertion: <explanation>
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>

@@ -7,12 +7,14 @@ import axios from 'axios';
 import type {IRecipes} from '../../@types/recipes';
 import {Routes, Route} from 'react-router';
 import RecipePage from '../../pages/RecipePage';
-import '../styles/reset.scss';
+import FavPAge from '../../pages/FavPage';
 
 function App() {
   
   const [recipeList, setRecipeList] = useState<IRecipes[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isConnected, setIsConnected] = useState(false);
+  const [token, setToken] = useState<null | string>(null);
  
   useEffect (() => {
     const getRecipes = async () => {
@@ -45,18 +47,18 @@ function App() {
   return (
     
   <div className='app'>
-      <Header />
+      <Header setIsConnected={setIsConnected} setToken={setToken} />
       
       <div className="container">
 
-          <Sidebar recipeList={recipeList}/>
+          <Sidebar recipeList={recipeList} isConnected={isConnected}/>
 
 
           <Routes>
            {/* route pour l'Accueil*/}
             <Route
             path='/'
-            element={<Articles recipeList={recipeList}/>} 
+            element={<Articles recipeList={recipeList} />} 
             />
 
             {/* route pour la page de recette*/}
@@ -70,6 +72,10 @@ function App() {
             path='*'
             element={<div>Erreur 404</div>}
             />
+
+{isConnected && (
+              <Route path="/fav" element={<FavPAge token={token} />} />
+            )}
           </Routes>
           
       </div>

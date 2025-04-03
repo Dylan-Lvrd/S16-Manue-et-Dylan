@@ -44,7 +44,14 @@ function Header({ setIsConnected, setToken }: HeaderProps){
         <img src="/logo.png" alt="logo" className='header-logo' />
         </Link>
         {pseudo ? (
+          <>
         <p>Bonjour {pseudo}</p>
+        <button className="form-btn" type="button" onClick={() => {
+          setPseudo(null)
+          setIsConnected(false)
+          setToken(null)
+        }} > Déconnexion</button>
+        </>
       ) : (
         <form
           className="form"
